@@ -1,5 +1,7 @@
-x = 1:50;
-y = sin(x);
-fs = y(1:2:50);
-ir = impulse_response(x, y, fs);
+:fs=10;
+t=-1:1/fs:1;
+x=cos(2*pi*t);    % input signal
+y=3*cos(2*pi*t);  % output signal
+[h,t]=impulse_response(x,y,fs);   % we expect the impulse response to be
+amplitude=(1/fs)*trapz(h)         % a dirac delta with amplitude 3
 
